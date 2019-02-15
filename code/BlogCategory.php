@@ -13,6 +13,8 @@ class BlogCategory extends DataObject
         "URLSegment" => "Varchar(255)",
     ];
 
+    private static $default_sort = 'Title';
+
     private static $indexes = [
         "URLSegment" => true,
     ];

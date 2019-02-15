@@ -27,10 +27,7 @@ class BlogPage extends Page
         $fields = parent::getCMSFields();
 
         $config = GridFieldConfig_RecordEditor::create();
-        $fields->addFieldToTab(
-            'Root.Categories',
-            GridField::create('BlogCategories', 'BlogCategories', $this->BlogCategories(), $config)
-        );
+        $fields->addFieldToTab('Root.Blog', GridField::create('BlogCategories', 'BlogCategories', $this->BlogCategories(), $config));
 
         return $fields;
     }

@@ -1,7 +1,9 @@
 <div class="container">
     <nav class="categoy-nav d-none d-sm-block">
         <% loop $BlogCategories %>
-            <a class="link" href="$Link">$Title</a>
+            <a class="link <% if $Top.currentCategorySlug == $URLSegment %>current<% end_if %>" href="$Link">
+                $Title
+            </a>
         <% end_loop %>
     </nav>
 

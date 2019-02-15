@@ -14,6 +14,8 @@ class BlogPageController extends PageController
 
     private $posts = null;
 
+    private $currentCategorySlug;
+
     public function PaginatedBlogPosts()
     {
         $posts = $this->posts;
@@ -36,7 +38,13 @@ class BlogPageController extends PageController
         $category = BlogCategory::get()->where(['URLSegment' => $slug])->first();
         $posts = BlogPostPage::get()->filter('BlogCategories.ID', $category->ID);
         $this->posts = $posts;
+        $this->currentCategorySlug = $category->URLSegment;
 
         return $this->render();
+    }
+
+    public function getCurrentCategorySlug()
+    {
+        return $this->currentCategorySlug;
     }
 }

@@ -9,6 +9,8 @@ class BlogPage_Controller extends Page_Controller
 
     private $posts = null;
 
+    private $currentCategorySlug;
+
     public function PaginatedBlogPosts()
     {
         $posts = $this->posts;
@@ -27,11 +29,16 @@ class BlogPage_Controller extends Page_Controller
             $this->httpError(404, 'Not Found');
             return;
         }
-
         $category = BlogCategory::get()->where(['URLSegment' => $slug])->first();
         $posts = BlogPostPage::get()->filter('BlogCategories.ID', $category->ID);
         $this->posts = $posts;
+        $this->currentCategorySlug = $category->URLSegment;
 
         return $this->render();
+    }
+
+    public function getCurrentCategorySlug()
+    {
+        return $this->currentCategorySlug;
     }
 }

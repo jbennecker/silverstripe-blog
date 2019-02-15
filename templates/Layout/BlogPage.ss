@@ -1,0 +1,26 @@
+<div class="container">
+    <nav class="categoy-nav d-none d-sm-block">
+        <% loop $BlogCategories %>
+            <a class="link" href="$Link">$Title</a>
+        <% end_loop %>
+    </nav>
+
+
+    <div class="row">
+        <% loop $PaginatedBlogPosts %>
+            <div class="col-12 col-lg-4">
+                <% include BlogPostTeaser %>
+            </div>
+        <% end_loop %>
+    </div>
+
+
+    <nav class="pagination-nav">
+        <% if $PaginatedProjects.NotFirstPage %>
+            <a class="link" href="$PaginatedProjects.PrevLink">Vorherige Seite</a>
+        <% end_if %>
+        <% if $PaginatedBlogPosts.NotLastPage && $PaginatedBlogPosts.MoreThanOnePage %>
+            <a class="link" href="$PaginatedBlogPosts.NextLink">Nächste Seite</a>
+        <% end_if %>
+    </nav>
+</div>

@@ -27,20 +27,11 @@ class BlogPostPage extends Page
     {
         $fields = parent::getCMSFields();
 
-        $fields->addFieldToTab('Root.Main', DateField::create('Date'));
-
-        $fields->addFieldToTab(
-            'Root.Categories',
-            CheckboxSetField::create(
-                'BlogCategories',
-                'Selected categories',
-                $this->Parent()->BlogCategories()->map('ID', 'Title')
-            )
-        );
-
-        $fields->addFieldToTab('Root.Teaser', TextField::create('TeaserTitle'));
-        $fields->addFieldToTab('Root.Teaser', TextareaField::create('TeaserText'));
-        $fields->addFieldToTab('Root.Teaser', UploadField::create('TeaserImage'));
+        $fields->addFieldToTab('Root.Blog', DateField::create('Date'));
+        $fields->addFieldToTab('Root.Blog', CheckboxSetField::create('BlogCategories', 'Selected categories', $this->Parent()->BlogCategories()->map('ID', 'Title')));
+        $fields->addFieldToTab('Root.Blog', TextField::create('TeaserTitle'));
+        $fields->addFieldToTab('Root.Blog', TextareaField::create('TeaserText'));
+        $fields->addFieldToTab('Root.Blog', UploadField::create('TeaserImage'));
 
         return $fields;
     }

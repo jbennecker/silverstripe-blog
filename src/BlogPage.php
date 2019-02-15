@@ -1,12 +1,22 @@
 <?php
 
+namespace jbennecker\blog;
+
+use Page;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+
 /**
  * @method HasManyList BlogCategories()
  */
 class BlogPage extends Page
 {
 
-    private static $allowed_children = ['BlogPostPage'];
+    private static $table_name = 'BlogPage';
+
+    private static $allowed_children = [
+        BlogPostPage::class,
+    ];
 
     private static $has_many = [
         'BlogCategories' => BlogCategory::class,

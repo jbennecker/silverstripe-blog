@@ -1,5 +1,10 @@
 <?php
 
+namespace jbennecker\blog;
+
+use SilverStripe\Control\Controller;
+use SilverStripe\ORM\DataObject;
+
 /**
  * Class BlogCategory
  *
@@ -7,6 +12,8 @@
  */
 class BlogCategory extends DataObject
 {
+
+    private static $table_name = 'BlogCategory';
 
     private static $db = [
         'Title' => 'Varchar',

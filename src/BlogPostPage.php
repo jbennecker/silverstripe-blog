@@ -1,7 +1,19 @@
 <?php
 
+namespace jbennecker\blog;
+
+use Page;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\Forms\DateField;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\TextField;
+use \SilverStripe\Assets\Image;
+
 class BlogPostPage extends Page
 {
+
+    private static $table_name = 'BlogPostPage';
 
     private static $can_be_root = false;
 
@@ -15,6 +27,10 @@ class BlogPostPage extends Page
 
     private static $has_one = [
         'TeaserImage' => Image::class,
+    ];
+
+    private static $owns = [
+        'TeaserImage',
     ];
 
     private static $db = [
@@ -45,7 +61,7 @@ class BlogPostPage extends Page
         return $fields;
     }
 
-    public function getMonth()
+    public function getMonth(): string
     {
         $time = strtotime($this->Date);
         return strftime('%b', $time);

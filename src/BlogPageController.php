@@ -1,6 +1,11 @@
 <?php
 
-class BlogPage_Controller extends Page_Controller
+namespace jbennecker\blog;
+
+use PageController;
+use SilverStripe\ORM\PaginatedList;
+
+class BlogPageController extends PageController
 {
 
     private static $allowed_actions = [
@@ -17,7 +22,7 @@ class BlogPage_Controller extends Page_Controller
         }
         $posts->sort('Date DESC');
 
-        return new PaginatedList($posts, $this->getRequest());
+        return new PaginatedList($posts, $this->request);
     }
 
     public function category($request)

@@ -4,6 +4,7 @@
  * Class BlogCategory
  *
  * @property string $URLSegment
+ * @method BlogPage BlogPage()
  */
 class BlogCategory extends DataObject
 {

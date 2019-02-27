@@ -10,7 +10,7 @@ class BlogPostPage extends Page
     private static $db = [
         'Date' => 'Date',
         'TeaserText' => 'Text',
-        'TeaserTitle' => 'Varchar',
+        'TeaserTitle' => 'Varchar(255)',
     ];
 
     private static $default_sort = 'Date';

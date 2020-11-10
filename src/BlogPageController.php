@@ -22,7 +22,7 @@ class BlogPageController extends PageController
         if (!$posts) {
             $posts = BlogPostPage::get();
         }
-        $posts->sort('Date DESC');
+        $posts = $posts->sort('Date DESC');
 
         return new PaginatedList($posts, $this->request);
     }

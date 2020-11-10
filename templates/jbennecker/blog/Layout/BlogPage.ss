@@ -18,8 +18,8 @@
 
 
     <nav class="pagination-nav">
-        <% if $PaginatedProjects.NotFirstPage %>
-            <a class="link" href="$PaginatedProjects.PrevLink">Vorherige Seite</a>
+        <% if $PaginatedBlogPosts.NotFirstPage %>
+            <a class="link" href="$PaginatedBlogPosts.PrevLink">Vorherige Seite</a>
         <% end_if %>
         <% if $PaginatedBlogPosts.NotLastPage && $PaginatedBlogPosts.MoreThanOnePage %>
             <a class="link" href="$PaginatedBlogPosts.NextLink">Nächste Seite</a>
